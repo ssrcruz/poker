@@ -7,4 +7,20 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+window.onload = function() {
+  let start = document.getElementById("js-start-poker");
+  start.onclick = function() {
+    let url = "/home/get_hands";
+    console.log(url);
+    fetch(url, {
+      method: "GET",
+      headers: {
+                  'Content-Type': 'json'
+              },
+    })
+    .then((resp) => resp.json())
+    .then(function(data) {
+      console.log(data);
+    });
+  }
+}
