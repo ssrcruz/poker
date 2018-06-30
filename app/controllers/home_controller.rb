@@ -5,8 +5,8 @@ include HomeHelper
   end
 
   def get_hands
-    head :ok
     @hands = open
-    @hands.to_json
+    @hands = { "hands": @hands }
+    render status: :ok, json: @hands
   end
 end

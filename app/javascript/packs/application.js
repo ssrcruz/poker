@@ -6,6 +6,7 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
+import poker from "./poker"
 
 window.onload = function() {
   let start = document.getElementById("js-start-poker");
@@ -13,14 +14,17 @@ window.onload = function() {
     let url = "/home/get_hands";
     console.log(url);
     fetch(url, {
-      method: "GET",
+      method: "get",
       headers: {
-                  'Content-Type': 'json'
-              },
+        'Accept': 'application/json',
+        'Content-Type': 'application/json' }
     })
-    .then((resp) => resp.json())
+    .then(function(resp) {
+      return resp.json();
+    })
     .then(function(data) {
       console.log(data);
+      poker(hands);
     });
   }
 }

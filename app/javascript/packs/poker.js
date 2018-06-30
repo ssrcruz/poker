@@ -1,8 +1,4 @@
 import royalFlush from "./royalFlush"
-let fs = require("fs");
-
-let textFile = fs.readFileSync("../../assets/images/pokerHands.txt").toString('utf-8');
-let hands = textFile.split("\n");
 
 let poker = (hands) => {
     let playerOne = [];
@@ -29,5 +25,4 @@ let poker = (hands) => {
     }
 };
 
-
-poker(hands);
+export default poker;
